@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $arr=["Technology", "Automotive", "Finance", "Politics", "Culture", "Sports"];
-    return view('welcome');
-});
+    return view('pages.home', [
+        'nav' => ["Technology", "Automotive", "Finance", "Politics", "Culture", "Sports"]
+    ]);
+})->name('home');
 
-Route::get('/about', function () {
-    return view('partials.about');
+Route::match(['get', 'post'], '/about-us', function (Request $request)  {
+    print_r($request->post('lastname'));
+    return view('pages.about');
+})->name('about');
+
+Route::redirect('/mouse', '/about');
+
+Route::get('/user/{id}', function ($id) {
+    return 'User '.$id;
 });
 
