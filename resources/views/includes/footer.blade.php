@@ -1,4 +1,4 @@
-<footer class="w-full border-t bg-white pb-12">
+
 <div
     class="relative w-full flex items-center invisible md:visible md:pb-12"
     x-data="getCarouselData()"
@@ -26,4 +26,3 @@
     </div>
     <div class="uppercase pb-6">&copy; myblog.com</div>
 </div>
-</footer>
