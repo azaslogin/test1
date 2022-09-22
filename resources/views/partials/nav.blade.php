@@ -1,11 +1,11 @@
 <!-- Top Bar Nav -->
-    <nav class="w-full py-4 bg-blue-800 shadow">
+<nav class="w-full py-4 bg-blue-800 shadow">
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
 
             <nav>
                 <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
                     <li><a class="hover:text-gray-200 hover:underline px-4" href="#">Shop</a></li>
-                    <li><a class="hover:text-gray-200 hover:underline px-4" href="#">About</a></li>
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="/about">About</a></li>
                 </ul>
             </nav>
 
