@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $arr=["Technology", "Automotive", "Finance", "Politics", "Culture", "Sports"];
     return view('welcome');
 });
+
+Route::get('/about', function () {
+    return view('partials.about');
+});
+
