@@ -32,7 +32,7 @@
 
         <article class="flex flex-col shadow my-4">
             <h2 class="text-lg">Form</h2>
-            <form method="POST">
+            <form method="POST" class="bg-gradient-to-r from-indigo-500">
                 @csrf
                 <input class="w-full hover:file:bg-violet-100 border-2 mb-2" name="name" type="text"/>
                 <input class="w-full hover:file:bg-violet-100 border-2 mb-2" name="lastname" type="text"/>
