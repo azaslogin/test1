@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/','App\Http\Controllers\PagesController@app');
+
+Route::get('/about','App\Http\Controllers\PagesController@about');
+
+Route::get('/Automotive','App\Http\Controllers\PagesController@autom');
+
+
