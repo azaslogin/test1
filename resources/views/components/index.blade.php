@@ -1,15 +1,24 @@
-@extends('layouts.default')
-@section('content')
+<body class="bg-white font-family-karla">
+    <nav class="w-full py-4 border-t border-b bg-gray-100" x-data="{ open: false }">
+        <div class="block sm:hidden">
+            <a
+                href="#"
+                class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
+                @click="open = !open">
+                Topics <i :class="open ? 'fa-chevron-down': 'fa-chevron-up'" class="fas ml-2"></i>
+            </a>
+        </div>
+        @foreach ($arr as $item)
+            <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
+                <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
+                    <a href={{$item}} class="hover:bg-gray-400 rounded py-2 px-4 mx-2">{{$item}}</a>
+                </div>
+            </div>
+        @endforeach
+    </nav> 
 
-    <nav>
-        <ul class="salam">
-            @foreach ($navigation as $item)
-                <li class="inline-block">
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">{{$item}}</a>
-                </li>
-            @endforeach
-        </ul>
-    </nav>
+    <div class="container mx-auto flex flex-wrap py-6">
+
         <!-- Posts Section -->
         <section class="w-full md:w-3/3 flex flex-col items-center px-3">
 
@@ -60,4 +69,18 @@
                     <a href="#" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
-@stop
+
+            <!-- Pagination -->
+            <div class="flex items-center py-8">
+                <a href="#" class="h-10 w-10 bg-blue-800 hover:bg-blue-600 font-semibold text-white text-sm flex items-center justify-center">1</a>
+                <a href="#" class="h-10 w-10 font-semibold text-gray-800 hover:bg-blue-600 hover:text-white text-sm flex items-center justify-center">2</a>
+                <a href="#" class="h-10 w-10 font-semibold text-gray-800 hover:text-gray-900 text-sm flex items-center justify-center ml-3">Next <i class="fas fa-arrow-right ml-2"></i></a>
+            </div>
+
+        </section>
+
+    </div>
+    
+</body>
+        
+
