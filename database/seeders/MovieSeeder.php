@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Movie;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class MovieSeeder extends Seeder
 {
@@ -15,8 +16,10 @@ class MovieSeeder extends Seeder
      */
     public function run()
     {
-        Movie::factory()
-            ->count(89000)
-            ->create();
+        $movie = Movie::factory()->count(100000)->make();
+
+        $movie->chunk(10000)->each(function($chunk) {
+            DB::table('movies')->insert($chunk->toArray());
+        });
     }
 }

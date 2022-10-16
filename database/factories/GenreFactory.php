@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\MovieGenre>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Genre>
  */
-class MovieGenreFactory extends Factory
+class GenreFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,7 @@ class MovieGenreFactory extends Factory
     {
         return [
             'title' => fake()->text(50),
-            'movies' => fake()->text(20)
+            'description' => fake()->text(20)
         ];
     }
 }
