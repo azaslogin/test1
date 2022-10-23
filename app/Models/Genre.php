@@ -9,4 +9,6 @@ class Genre extends Model
 {
     public $timestamps = FALSE;
     use HasFactory;
+
+    protected $fillable = ['title', 'description'];
 }
