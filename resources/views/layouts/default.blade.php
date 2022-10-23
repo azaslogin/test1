@@ -3,7 +3,7 @@
 <head>
    @include('includes.head')
 </head>
-<body>
+<body class="bg-gray-100">
 <div id="main" class="container mx-auto flex flex-wrap">
         @include('partials.nav')
 
