@@ -15,8 +15,11 @@ class GenreSeeder extends Seeder
      */
     public function run()
     {
-        Genre::factory()
-            ->count(10)
-            ->create();
+        $genres = [
+            ["title" => "Action", "description" => "shooting"],
+            ["title" => "Adventure", "description" => "Trip"],
+            ["title" => "Comedy", "description" => "Laughable"],
+        ];
+        Genre::insert($genres);
     }
 }
