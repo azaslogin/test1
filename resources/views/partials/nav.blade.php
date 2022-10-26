@@ -8,6 +8,8 @@
                 <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('about') }}">About</a></li>
                 <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('automotive') }}">Automotive</a></li>
                 <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('culture') }}">Culture</a></li>
+                <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('movie.index') }}">Movie</a></li>
+                <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('genre.index') }}">Genre</a></li>
             </ul>
         </nav>
 
