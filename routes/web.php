@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,8 @@ Route::resource('genre', GenreController::class);
 //    print_r($request->post('lastname'));
 //    return view('pages.about');
 //})->name('about');
+
+Route::resource('movie', MovieController::class);
 
 Route::get('/user/{id}', function ($id) {
     return 'User '.$id;
