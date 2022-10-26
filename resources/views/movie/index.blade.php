@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
-<div class="flex items-center justify-center h-screen">
+<div class="flex items-center justify-center">
     <a href="{{route('movie.create')}}" class="text-blue-500 underline hover:text-blue-700">Add movie!</a>
     <h1 class="font-medium leading-tight text-5xl mt-0 mb-2 text-blue-600">Movies</h1>
 </div>
@@ -54,7 +54,7 @@
         </div>
         {{ $movies->onEachSide(2)->links() }}
       </div>
-     
+
     </div>
   </div>
 @endsection

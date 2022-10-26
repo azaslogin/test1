@@ -69,9 +69,8 @@
                                 </td>
                                 <td class="text-sm font-medium leading-5 whitespace-no-wrap border-b border-gray-200 ">
                                     <form action="{{ route('genre.destroy',$genre->id) }}" method="POST" onsubmit="return confirm('{{ trans('are You Sure ? ') }}');">
-
                                         <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        @csrf
                                         <button type="submit" class="flex items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             class="w-6 h-6 text-red-600 hover:text-red-800 cursor-pointer" fill="none"
