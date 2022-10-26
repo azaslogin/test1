@@ -28,7 +28,6 @@ class GenreController extends Controller
      */
     public function create()
     {
-
         return response()->view('genre.create');
     }
 
@@ -67,7 +66,7 @@ class GenreController extends Controller
      */
     public function edit(Genre $genre)
     {
-        //
+        return response()->view('genre.edit', ['genre' => $genre]);
     }
 
     /**
@@ -75,21 +74,28 @@ class GenreController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Genre $genre
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function update(Request $request, Genre $genre)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+        $genre->fill($validated);
+        $genre->save();
+        return response()->redirectToRoute('genre.index')->with('message', 'Genre Updated Successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Genre $genre
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function destroy(Genre $genre)
     {
-        //
+        $genre->delete();
+        return response()->redirectToRoute('genre.index')->with('message', 'Genre Deleted Successfully');
     }
 }
