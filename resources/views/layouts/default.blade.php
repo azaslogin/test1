@@ -10,8 +10,8 @@
         <header class="w-full container mx-auto">
            @include('includes.header')
         </header>
-
-       @yield('content')
+         @include('movie.flash-message')
+         @yield('content')
 
 
        <footer class="w-full border-t bg-white pb-12">
