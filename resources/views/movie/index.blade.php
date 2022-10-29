@@ -1,12 +1,18 @@
 @extends('layouts.default')
 @section('content')
 <div class="flex items-center justify-center">
-    <a href="{{route('movie.create')}}" class="text-blue-500 underline hover:text-blue-700">Add movie!</a>
-    <h1 class="font-medium leading-tight text-5xl mt-0 mb-2 text-blue-600">Movies</h1>
+  <div class="m-2 p-3 flex flex-wrap bg-blue-700 text-center w-full rounded">
+    <a href="{{route('movie.create')}}" class="text-white underline hover:text-black">Add movie!</a>
+  </div>
 </div>
+  <div class="w-full">
+    <h1 class="font-small leading-tight text-5xl mt-0 mb-2 text-blue-600">Movies</h1>
+  </div>
+    
+
 {{-- {{$movies}} --}}
 
-<div class="flex flex-col">
+<div class="flex flex-wrap">
     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
         <div class="overflow-hidden">

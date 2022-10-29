@@ -53,9 +53,7 @@
                 "
                 id="exampleFormControlTextarea13"
                 rows="3"
-                placeholder="Description" name="description">
-                {{old('description')}}
-              </textarea>
+                placeholder="Description" name="description">{{old('description')}}</textarea>
             @error('description')
                           <span class="text-red-600 text-sm">
                                       {{ $message }}
