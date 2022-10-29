@@ -1,11 +1,14 @@
 @if ($message = Session::get('success'))
-<div class="basis-1/1">
-	<button type="button" class="close" data-dismiss="alert">×</button>	
-        <strong>{{ $message }}</strong>
+<div class="w-full p-2 m-4 text-center bg-yellow-300 rounded" x-data="{show: true}" x-init="setTimeout(() => show = false, 1000)" x-show="show">
+		<strong class="text-green-800 font-bold">{{ $message }}</strong>
 </div>
 @endif
 
 
+
+
+
+{{-- 
 @if ($message = Session::get('error'))
 <div class="alert alert-danger alert-block">
 	<button type="button" class="close" data-dismiss="alert">×</button>	
@@ -35,4 +38,4 @@
 	<button type="button" class="close" data-dismiss="alert">×</button>	
 	Please check the form below for errors
 </div>
-@endif
+@endif --}}
