@@ -19,6 +19,10 @@ class GenreSeeder extends Seeder
             ["title" => "Action", "description" => "shooting"],
             ["title" => "Adventure", "description" => "Trip"],
             ["title" => "Comedy", "description" => "Laughable"],
+            ["title" => "Horror", "description" => "Laughable"],
+            ["title" => "Drama", "description" => "drama"],
+            ["title" => "Melodrama", "description" => "slezi"],
+            ["title" => "Kyrgyscha", "description" => "kg"],
         ];
         Genre::insert($genres);
     }

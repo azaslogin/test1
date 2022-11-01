@@ -6,11 +6,10 @@
 <body class="bg-gray-100">
 <div id="main" class="container mx-auto flex flex-wrap">
         @include('partials.nav')
-
+        @include('partials.flash-message')
         <header class="w-full container mx-auto">
            @include('includes.header')
         </header>
-         @include('movie.flash-message')
          @yield('content')
 
 

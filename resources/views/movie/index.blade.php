@@ -8,7 +8,7 @@
   <div class="w-full">
     <h1 class="font-small leading-tight text-5xl mt-0 mb-2 text-blue-600">Movies</h1>
   </div>
-    
+
 
 {{-- {{$movies}} --}}
 
@@ -41,6 +41,9 @@
               <tr class="bg-white border-b">
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     {{$movie->id}}
+                    @foreach ($movie->genres as $genre)
+                        <span>{{ $genre->title }} </span>
+                    @endforeach
                 </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                     {{$movie->title}}

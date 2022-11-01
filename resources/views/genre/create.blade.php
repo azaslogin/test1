@@ -17,9 +17,7 @@
                         class="p-3 block w-full mt-1 border-black-700 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-black-700 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         type="text" name="title" placeholder="180" value="{{old('title')}}">
                     @error('title')
-                    <span class="text-red-600 text-sm">
-                                {{ $message }}
-                            </span>
+                    @include('forms.validation-message')
                     @enderror
                     <p class="py-2 text-sm text-gray-600">add notes about populating the field</p>
                 </div>
@@ -54,9 +52,7 @@
                               class="block w-full p-3 mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                               rows="4" placeholder="400"> {{old('description')}}</textarea>
                     @error('description')
-                    <span class="text-red-600 text-sm">
-                                {{ $message }}
-                            </span>
+                    @include('forms.validation-message')
                     @enderror
                     <p class="py-2 text-sm text-gray-600">add notes about populating the field</p>
                 </div>

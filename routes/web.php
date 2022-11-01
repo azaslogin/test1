@@ -26,10 +26,6 @@ Route::get('/Automotive',[PagesController::class, 'automotive'])->name('automoti
 Route::get('/culture',[PagesController::class, 'culture'])->name('culture');
 
 Route::resource('genre', GenreController::class);
-//Route::match(['get', 'post'], '/about-us', function (Request $request)  {
-//    print_r($request->post('lastname'));
-//    return view('pages.about');
-//})->name('about');
 
 Route::resource('movie', MovieController::class);
 
