@@ -44,7 +44,7 @@ class GenreController extends Controller
             'description' => 'required',
         ]);
         Genre::create($validated);
-        return response()->redirectToRoute('genre.index')->with('message', 'Genre Created Successfully');
+        return response()->redirectToRoute('genre.index')->with('success', 'Genre Created Successfully');
     }
 
     /**
@@ -84,7 +84,7 @@ class GenreController extends Controller
         ]);
         $genre->fill($validated);
         $genre->save();
-        return response()->redirectToRoute('genre.index')->with('message', 'Genre Updated Successfully');
+        return response()->redirectToRoute('genre.index')->with('success', 'Genre Updated Successfully');
     }
 
     /**
@@ -96,6 +96,6 @@ class GenreController extends Controller
     public function destroy(Genre $genre)
     {
         $genre->delete();
-        return response()->redirectToRoute('genre.index')->with('message', 'Genre Deleted Successfully');
+        return response()->redirectToRoute('genre.index')->with('success', 'Genre Deleted Successfully');
     }
 }
