@@ -4,6 +4,22 @@
         <form method="POST" action="{{ route('movie.store') }}">
             @csrf
             <div class="form-group mb-6">
+                <label class="default-label">
+                    Genre
+                </label>
+                <select name="genre-id" class="default-input">
+                    <option value="">Select Genre</option>
+                    @foreach ($genres as $genre)
+                        <option value="{{ $genre->id }}" {{ old('genre-id') == $genre->id ? 'selected' : '' }}>{{ $genre->title }}</option>
+                    @endforeach
+                </select>
+
+                @error('genre-id')
+                @include('forms.validation-message')
+                @enderror
+            </div>
+
+            <div class="form-group mb-6">
                 <label class="default-label" for="input-title">
                     Title
                 </label>
@@ -27,6 +43,22 @@
             </div>
 
             <div class="form-group mb-6">
+                <label class="default-label">
+                    Country
+                </label>
+                <select name="country-id" class="default-input">
+                    <option value="">Select Country</option>
+                    @foreach ($countries as $country)
+                        <option value="{{ $country->id }}" {{ old('country-id') == $country->id ? 'selected' : '' }}>{{ $country->title }}</option>
+                    @endforeach
+                </select>
+
+                @error('country-id')
+                @include('forms.validation-message')
+                @enderror
+            </div>
+
+            <div class="form-group mb-6">
                 <label class="default-label" for="my-textarea">
                     Year
                 </label>
@@ -36,22 +68,7 @@
                 @include('forms.validation-message')
                 @enderror
             </div>
-
-            <div class="form-group mb-6">
-                <label class="default-label">
-                    Genre
-                </label>
-                <select name="genre-id" class="default-input">
-                    <option value="">Select Genre</option>
-                    @foreach ($genres as $genre)
-                        <option value="{{ $genre->id }}" {{ old('genre-id') == $genre->id ? 'selected' : '' }}>{{ $genre->title }}</option>
-                    @endforeach
-                </select>
-
-                @error('genre-id')
-                @include('forms.validation-message')
-                @enderror
-            </div>
+            
 
             <div class="form-group mb-6">
                 <label class="default-label" for="my-textarea">

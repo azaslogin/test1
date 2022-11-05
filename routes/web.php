@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\PagesController;
@@ -28,6 +29,8 @@ Route::get('/culture',[PagesController::class, 'culture'])->name('culture');
 Route::resource('genre', GenreController::class);
 
 Route::resource('movie', MovieController::class);
+
+Route::resource('country', CountryController::class);
 
 Route::get('/user/{id}', function ($id) {
     return 'User '.$id;

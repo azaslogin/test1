@@ -23,10 +23,16 @@
                   #
                 </th>
                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                  GENRE
+                </th>
+                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                   TITLE
                 </th>
                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                   DESCRIPTION
+                </th>
+                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                  COUNTRY
                 </th>
                 <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                   RELEASE YEAR
@@ -41,6 +47,8 @@
               <tr class="bg-white border-b">
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     {{$movie->id}}
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                     @foreach ($movie->genres as $genre)
                         <span>{{ $genre->title }} </span>
                     @endforeach
@@ -51,6 +59,11 @@
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                     {{$movie->description}}
                 </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  @foreach ($movie->countries as $country)
+                      <span>{{ $country->title }} </span>
+                  @endforeach
+              </td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                     {{$movie->year}}
                 </td>
