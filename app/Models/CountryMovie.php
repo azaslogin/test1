@@ -5,15 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Country extends Model
+class CountryMovie extends Model
 {
     public $timestamps = FALSE;
     use HasFactory;
-
-    protected $fillable = ['title', 'description'];
-
-    public function movies()
-    {
-        return $this->belongsToMany(Movie::class);
-    }
+    protected $fillable = ['genre_id', 'movie_id'];
 }

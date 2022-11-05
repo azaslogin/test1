@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
+use App\Models\Country;
 use App\Models\Movie;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -12,7 +13,7 @@ class MovieController extends Controller
 {
     public function index()
     {
-        $movies = Movie::with('genres')->paginate(10);
+        $movies = Movie::paginate(10);
         return response()->view('movie.index',
             ['movies' => $movies]);
     }
@@ -25,8 +26,10 @@ class MovieController extends Controller
     public function create()
     {
         $genres = Genre::all()->sortBy('title');
+        $countries = Country::all()->sortBy('title');
         return response()->view('movie.create', [
-            'genres' => $genres
+            'genres' => $genres,
+            'countries' => $countries
         ]);
     }
 
@@ -44,10 +47,13 @@ class MovieController extends Controller
             'year' => 'required|integer|min:1900',
             'duration' => 'required',
             'genre-id' => 'required|integer',
+            'country-id' => 'required|integer'
         ]);
         $movie = Movie::create($validated);
 
         $movie->genres()->attach($validated['genre-id']);
+
+        $movie->countries()->attach($validated['country-id']);
 
         return response()->redirectToRoute('movie.index')->with('success', 'Movie Created Successfully');
     }
