@@ -46,8 +46,11 @@ class MovieController extends Controller
             'description' => 'required',
             'year' => 'required|integer|min:1900',
             'duration' => 'required',
-            'genre-id' => 'required|integer',
-            'country-id' => 'required|integer'
+
+            'genre-id' => 'required|array',
+            'genre-id.*' => 'integer',
+            'country-id' => 'required|array',
+            'country-id.*' => 'integer'
         ]);
         $movie = Movie::create($validated);
 
@@ -65,7 +68,13 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        return response()->view('movie.edit', ['movie' => $movie]);
+        $genres = Genre::all()->sortBy('title');
+        $countries = Country::all()->sortBy('title');
+        return response()->view('movie.edit', [
+            'movie' => $movie,
+            'genres' => $genres,
+            'countries' => $countries
+        ]);
     }
 
     /**
@@ -81,9 +90,19 @@ class MovieController extends Controller
             'title' => 'required',
             'description' => 'required',
             'year' => 'required|integer|min:1900',
-            'duration' => 'required'
+            'duration' => 'required',
+
+            'genre-id' => 'required|array',
+            'genre-id.*' => 'integer',
+            'country-id' => 'required|array',
+            'country-id.*' => 'integer'
         ]);
         $movie->fill($validated);
+
+        $movie->genres()->sync($validated['genre-id']);
+
+        $movie->countries()->sync($validated['country-id']);
+
         $movie->save();
         return response()->redirectToRoute('movie.index')->with('success', 'Movie Updated Successfully');
     }

@@ -3,33 +3,8 @@
     <div id="section2" class="p-8 mt-6 lg:mt-0 rounded shadow bg-white w-full">
         <form method="POST" action="{{ route('movie.store') }}">
             @csrf
-            <div class="form-group mb-6">
-                <label class="default-label">
-                    Genre
-                </label>
-                <select name="genre-id" class="default-input">
-                    <option value="">Select Genre</option>
-                    @foreach ($genres as $genre)
-                        <option value="{{ $genre->id }}" {{ old('genre-id') == $genre->id ? 'selected' : '' }}>{{ $genre->title }}</option>
-                    @endforeach
-                </select>
 
-                @error('genre-id')
-                @include('forms.validation-message')
-                @enderror
-            </div>
-
-            <div class="form-group mb-6">
-                <label class="default-label" for="input-title">
-                    Title
-                </label>
-                <input type="text" class="default-input" id="input-title" placeholder="Title" name="title"
-                       value="{{old('title')}}">
-
-                @error('title')
-                @include('forms.validation-message')
-                @enderror
-            </div>
+            <x-forms.input title="Title" name="title" input-type="text" :value="old('title')"/>
 
             <div class="form-group mb-6">
                 <label class="default-label" for="my-textarea">
@@ -42,45 +17,14 @@
                 @enderror
             </div>
 
-            <div class="form-group mb-6">
-                <label class="default-label">
-                    Country
-                </label>
-                <select name="country-id" class="default-input">
-                    <option value="">Select Country</option>
-                    @foreach ($countries as $country)
-                        <option value="{{ $country->id }}" {{ old('country-id') == $country->id ? 'selected' : '' }}>{{ $country->title }}</option>
-                    @endforeach
-                </select>
+            <x-forms.select-multiple title="Country" name="country-id" :items="$countries" :values="old('country-id')"/>
 
-                @error('country-id')
-                @include('forms.validation-message')
-                @enderror
-            </div>
+            <x-forms.select-multiple title="Genre" name="genre-id" :items="$genres" :values="old('genre-id')"/>
 
-            <div class="form-group mb-6">
-                <label class="default-label" for="my-textarea">
-                    Year
-                </label>
-                <input type="number" class="default-input" placeholder="Year" name="year" value="{{old('year')}}">
+            <x-forms.input title="Year" name="year" input-type="number" :value="old('year')"/>
 
-                @error('year')
-                @include('forms.validation-message')
-                @enderror
-            </div>
-            
+            <x-forms.input title="Duration" name="duration" input-type="text" :value="old('duration')"/>
 
-            <div class="form-group mb-6">
-                <label class="default-label" for="my-textarea">
-                    Duration
-                </label>
-                <input type="text" class="default-input" placeholder="Duration" name="duration"
-                       value="{{old('duration')}}">
-
-                @error('duration')
-                @include('forms.validation-message')
-                @enderror
-            </div>
 
             <button
                 class="shadow bg-yellow-700 hover:bg-yellow-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
