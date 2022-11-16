@@ -4,7 +4,7 @@
     <div class="w-full flex flex-col">
             <div class="overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
                 <div>
-                    <a href="{{route('genre.create')}}" class="p-2 shadow-lg rounded-2xl tr-300 w-100 font-medium  bg-green-500 rounded-md hover:bg-green-600 text-gray-50">Create Genre</a>
+                    <a href="{{route('genre.create')}}" class="p-2 shadow-lg tr-300 w-100 font-medium  bg-green-500 rounded-md hover:bg-green-600 text-gray-50">Create Genre</a>
                 </div>
                 {{ $genres->onEachSide(2)->links() }}
                 <div
@@ -23,7 +23,7 @@
                                     Description</th>
                                 <th
                                     class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                    Created_At</th>
+                                    Movies</th>
                                 <th class="px-6 py-3 text-sm text-left text-gray-500 border-b border-gray-200 bg-gray-50"
                                     colspan="2">
                                     Action</th>
@@ -52,6 +52,7 @@
 
                                 <td
                                     class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                                    <a href="{{ route('moviebygenre.index', $genre->id) }}">Show movies</a>
                                     <span> {{ $genre->created_at }}</span>
                                 </td>
 
