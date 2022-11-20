@@ -30,10 +30,11 @@ Route::get('/culture',[PagesController::class, 'culture'])->name('culture');
 Route::resource('genre', GenreController::class);
 
 Route::resource('movie', MovieController::class);
+Route::get('movie/genre/{genre}', [MovieController::class, 'movieByGenre'])->name('movie-by-genre');
 
 Route::resource('country', CountryController::class);
 
-Route::resource('moviebygenre',MovieByGenreController::class);
+Route::get('moviebygenre/index/{id}',[MovieByGenreController::class, 'index'])->name('moviebygenre.index');
 
 Route::get('/user/{id}', function ($id) {
     return 'User '.$id;

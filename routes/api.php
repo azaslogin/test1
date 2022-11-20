@@ -15,7 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/test', function (Request $request) {
-    echo [
-        'name'=>'Azamat'
-    ];
+    return \App\Models\Country::find(5);
 });

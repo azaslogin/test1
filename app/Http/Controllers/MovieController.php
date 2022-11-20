@@ -18,6 +18,15 @@ class MovieController extends Controller
             ['movies' => $movies]);
     }
 
+    public function movieByGenre(Genre $genre)
+    {
+        $movies = $genre->movies()->paginate(10);
+//        print_r($movies);
+//        die;
+        return response()->view('movie.index',
+            ['movies' => $movies]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
