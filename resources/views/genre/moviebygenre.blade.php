@@ -1,10 +1,10 @@
 @extends('layouts.default')
 
 @section('content')
-    @if (count($movies) == 0) 
-        <h1 class="text-lg w-full">There are no {{$genre[0]->title}} movies</h1>
+    @if (count($movies) == 0)
+        <h1 class="text-lg w-full">There are no {{$genre->title}} movies</h1>
     @else
-    <h1 class="text-lg w-full">{{$genre[0]->title}} movies</h1>
+    <h1 class="text-lg w-full">{{$genre->title}} movies</h1>
         <div class="w-full flex flex-col">
             <div class="overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
                 <div
