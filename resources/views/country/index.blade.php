@@ -21,6 +21,12 @@
                                 <th
                                     class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                                     Description</th>
+                                <th
+                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                    Movies</th>
+                                <th class="px-6 py-3 text-sm text-left text-gray-500 border-b border-gray-200 bg-gray-50"
+                                    colspan="2">
+                                    Action</th>
                             </tr>
                         </thead>
 
@@ -42,6 +48,12 @@
 
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                     {{ $country->description }}
+                                </td>
+
+                                <td
+                                    class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+                                    <a href="{{ route('movie-by-country', $country->id) }}">Show movies</a>
+                                    <span> {{ $country->created_at }}</span>
                                 </td>
 
                                 <td

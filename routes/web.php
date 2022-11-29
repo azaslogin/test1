@@ -30,7 +30,10 @@ Route::get('/culture',[PagesController::class, 'culture'])->name('culture');
 Route::resource('genre', GenreController::class);
 
 Route::resource('movie', MovieController::class);
+
 Route::get('movie/genre/{genre}', [MovieController::class, 'movieByGenre'])->name('movie-by-genre');
+
+Route::get('movie/country/{country}', [MovieController::class, 'movieByCountry'])->name('movie-by-country');
 
 Route::resource('country', CountryController::class);
 
