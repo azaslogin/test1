@@ -24,8 +24,9 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - Blade
 - Blade components
 - Javascript
-- --------
 - Cache
+- xdebug
+- --------
 - middleware
 - CI/CD pipeline
 - file upload
