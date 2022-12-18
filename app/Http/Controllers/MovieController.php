@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Genre;
 use App\Models\Country;
 use App\Models\Movie;
+use App\Redis\CountryRedis;
+use App\Redis\GenreRedis;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Validation\Validator;
 
 class MovieController extends Controller
@@ -41,10 +44,11 @@ class MovieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(GenreRedis $genreRedis, CountryRedis $countryRedis): Response
     {
-        $genres = Genre::all()->sortBy('title');
-        $countries = Country::all()->sortBy('title');
+        $genres = $genreRedis->getGenresByTitle();
+        $countries = $countryRedis->getCountriesByTitle();
+
         return response()->view('movie.create', [
             'genres' => $genres,
             'countries' => $countries
@@ -84,10 +88,10 @@ class MovieController extends Controller
      * @param \App\Models\Movie $movie
      * @return \Illuminate\Http\Response
      */
-    public function edit(Movie $movie)
+    public function edit(Movie $movie, GenreRedis $genreRedis, CountryRedis $countryRedis): Response
     {
-        $genres = Genre::all()->sortBy('title');
-        $countries = Country::all()->sortBy('title');
+        $genres = $genreRedis->getGenresByTitle();
+        $countries = $countryRedis->getCountriesByTitle();
         return response()->view('movie.edit', [
             'movie' => $movie,
             'genres' => $genres,
