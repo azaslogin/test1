@@ -100,6 +100,6 @@
         @endforeach
       </tbody>
     </table>
-    {{ $movies->onEachSide(2)->links() }}
+    {{-- {{ $movies->onEachSide(2)->links() }} --}}
   </div>
 @endsection

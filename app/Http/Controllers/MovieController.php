@@ -7,6 +7,7 @@ use App\Models\Country;
 use App\Models\Movie;
 use App\Redis\CountryRedis;
 use App\Redis\GenreRedis;
+use App\Redis\MovieRedis;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -14,9 +15,9 @@ use Illuminate\Validation\Validator;
 
 class MovieController extends Controller
 {
-    public function index()
+    public function index(MovieRedis $movieRedis): Response
     {
-        $movies = Movie::paginate(10);
+        $movies = $movieRedis->getMoviesByTitle();
         return response()->view('movie.index',
             ['movies' => $movies]);
     }
