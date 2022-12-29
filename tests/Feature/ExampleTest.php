@@ -18,4 +18,15 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function test_the_movie_index_returns_a_successfull_response()
+    {
+        $response = $this->get('/movie');
+
+        $response->assertStatus(200);
+    }
 }
