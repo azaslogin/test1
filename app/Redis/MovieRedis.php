@@ -17,7 +17,6 @@ class MovieRedis extends MasterRedis
     public function getMoviesByTitle(): Collection
     {
         return Cache::remember(self::MOVIES_BY_TITLE, env('TIME_IN_CACHE', 60), function () {
-            echo 'saving in cache movie';
             return Movie::all()->sortBy('title');
         });
     }
