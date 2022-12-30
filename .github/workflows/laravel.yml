@@ -35,7 +35,7 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Database population
       run: |
-        php artistan migrate
+        php artisan migrate
         php artisan db:seed
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
