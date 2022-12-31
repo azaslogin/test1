@@ -43,5 +43,5 @@ jobs:
           php artisan db:seed
         env:
           DB_DATABASE: testing
-      - name: Execute tests (Unit and Feature tests) via PHPUnit
+      - name: Execute tests (Unit and Feature tests) via PHPUni
         run: ./vendor/bin/phpunit
