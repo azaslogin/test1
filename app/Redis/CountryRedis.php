@@ -16,7 +16,6 @@ class CountryRedis extends MasterRedis
     public function getCountriesByTitle(): Collection
     {
         return Cache::remember(self::COUNTRIES_BY_TITLE, env('TIME_IN_CACHE', 60), function() {
-            echo 'saving in cache country';
             return Country::all()->sortBy('title');
         });
     }
