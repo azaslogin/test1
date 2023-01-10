@@ -25,8 +25,6 @@ class MovieController extends Controller
     public function movieByGenre(Genre $genre)
     {
         $movies = $genre->movies()->paginate(10);
-//        print_r($movies);
-//        die;
         return response()->view('movie.index',
             ['movies' => $movies]);
     }
@@ -34,8 +32,6 @@ class MovieController extends Controller
     public function movieByCountry(Country $country)
     {
         $movies = $country->movies()->paginate(10);
-//        print_r($movies);
-//        die;
         return response()->view('movie.index',
             ['movies' => $movies]);
     }

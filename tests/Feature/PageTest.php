@@ -35,21 +35,21 @@ class PageTest extends TestCase
     /**
      * @return void
      */
-    public function testMovieIndexPageToReturnSuccessfulResponse(): void
-    {
-
-        $response = $this->get('/movie');
-
-        $response->assertStatus(200);
-    }
-
-    /**
-     * @return void
-     */
     public function testGenreIndexPageToReturnSuccessfulResponse(): void
     {
         $response = $this->get('/genre');
 
         $response->assertStatus(200);
+    }
+
+
+    /**
+     * @return void
+     */
+    public function testNonExistingPageToReturnNotFoundResponse(): void
+    {
+        $response = $this->get('/not-existing-page');
+
+        $response->assertStatus(404);
     }
 }

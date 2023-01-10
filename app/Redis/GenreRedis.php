@@ -16,7 +16,6 @@ class GenreRedis extends MasterRedis
     public function getGenresByTitle(): Collection
     {
         return Cache::remember(self::GENRES_BY_TITLE, env('TIME_IN_CACHE', 60), function() {
-            echo 'saving in cache genre';
             return Genre::all()->sortBy('title');
         });
     }
