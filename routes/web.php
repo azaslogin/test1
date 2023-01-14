@@ -40,5 +40,5 @@ Route::resource('country', CountryController::class);
 Route::get('moviebygenre/index/{id}', [MovieByGenreController::class, 'index'])->name('moviebygenre.index');
 
 Route::get('/user/{id}', function ($id) {
-    return 'User '.$id;
+    return 'User ' . $id;
 });
