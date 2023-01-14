@@ -7,9 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class CountryMovie extends Model
 {
-    use HasFactory;
-
     public $timestamps = false;
+    use HasFactory;
 
     protected $fillable = ['genre_id', 'movie_id'];
 }
