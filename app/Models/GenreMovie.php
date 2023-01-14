@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class GenreMovie extends Model
 {
     protected $table = 'genre_movie';
-    public $timestamps = FALSE;
+    public $timestamps = false;
     use HasFactory;
 
     protected $fillable = ['genre_id', 'movie_id'];

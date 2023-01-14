@@ -19,13 +19,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',[PagesController::class, 'home'])->name('home');
+Route::get('/', [PagesController::class, 'home'])->name('home');
 
-Route::get('/about',[PagesController::class, 'about'])->name('about');
+Route::get('/about', [PagesController::class, 'about'])->name('about');
 
-Route::get('/Automotive',[PagesController::class, 'automotive'])->name('automotive');
+Route::get('/Automotive', [PagesController::class, 'automotive'])->name('automotive');
 
-Route::get('/culture',[PagesController::class, 'culture'])->name('culture');
+Route::get('/culture', [PagesController::class, 'culture'])->name('culture');
 
 Route::resource('genre', GenreController::class);
 
@@ -37,7 +37,7 @@ Route::get('movie/country/{country}', [MovieController::class, 'movieByCountry']
 
 Route::resource('country', CountryController::class);
 
-Route::get('moviebygenre/index/{id}',[MovieByGenreController::class, 'index'])->name('moviebygenre.index');
+Route::get('moviebygenre/index/{id}', [MovieByGenreController::class, 'index'])->name('moviebygenre.index');
 
 Route::get('/user/{id}', function ($id) {
     return 'User '.$id;

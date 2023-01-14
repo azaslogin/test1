@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
-    public $timestamps = FALSE;
+    public $timestamps = false;
     use HasFactory;
 
     protected $fillable = ['title', 'description'];

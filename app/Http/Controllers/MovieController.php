@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * hello world
+ */
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
@@ -15,31 +17,49 @@ use Illuminate\Validation\Validator;
 
 class MovieController extends Controller
 {
+    /**
+     * @param MovieRedis $movieRedis
+     * @return Response
+     */
     public function index(MovieRedis $movieRedis): Response
     {
         $movies = $movieRedis->getMoviesByTitle();
-        return response()->view('movie.index',
-            ['movies' => $movies]);
-    }
-
-    public function movieByGenre(Genre $genre)
-    {
-        $movies = $genre->movies()->paginate(10);
-        return response()->view('movie.index',
-            ['movies' => $movies]);
-    }
-
-    public function movieByCountry(Country $country)
-    {
-        $movies = $country->movies()->paginate(10);
-        return response()->view('movie.index',
-            ['movies' => $movies]);
+        return response()->view(
+            'movie.index',
+            ['movies' => $movies]
+        );
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Genre $genre
+     * @return Response
+     */
+    public function movieByGenre(Genre $genre)
+    {
+        $movies = $genre->movies()->paginate(10);
+        return response()->view(
+            'movie.index',
+            ['movies' => $movies]
+        );
+    }
+
+    /**
+     * @param Country $country
+     * @return Response
+     */
+    public function movieByCountry(Country $country)
+    {
+        $movies = $country->movies()->paginate(10);
+        return response()->view(
+            'movie.index',
+            ['movies' => $movies]
+        );
+    }
+
+    /**
+     * @param GenreRedis $genreRedis
+     * @param CountryRedis $countryRedis
+     * @return Response
      */
     public function create(GenreRedis $genreRedis, CountryRedis $countryRedis): Response
     {
@@ -53,9 +73,7 @@ class MovieController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return RedirectResponse
      */
     public function store(Request $request)
@@ -79,11 +97,12 @@ class MovieController extends Controller
 
         return response()->redirectToRoute('movie.index')->with('success', 'Movie Created Successfully');
     }
+
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Movie $movie
-     * @return \Illuminate\Http\Response
+     * @param Movie $movie
+     * @param GenreRedis $genreRedis
+     * @param CountryRedis $countryRedis
+     * @return Response
      */
     public function edit(Movie $movie, GenreRedis $genreRedis, CountryRedis $countryRedis): Response
     {
@@ -97,10 +116,8 @@ class MovieController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Movie $movie
+     * @param Request $request
+     * @param Movie $movie
      * @return RedirectResponse
      */
     public function update(Request $request, Movie $movie)
@@ -127,9 +144,7 @@ class MovieController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Movie $movie
+     * @param Movie $movie
      * @return RedirectResponse
      */
     public function destroy(Movie $movie)
