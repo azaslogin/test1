@@ -32,6 +32,8 @@ jobs:
         run: |
           npm install
           npm run build
+      - name: Run Code sniffer
+        run: phpcs    
       - name: Generate key
         run: php artisan key:generate
       - name: Directory Permissions
