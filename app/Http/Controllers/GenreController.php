@@ -17,8 +17,10 @@ class GenreController extends Controller
     public function index()
     {
         $genres = Genre::paginate(15);
-        return response()->view('genre.index',
-            ['genres' => $genres]);
+        return response()->view(
+            'genre.index',
+            ['genres' => $genres]
+        );
     }
 
     /**

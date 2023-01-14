@@ -17,8 +17,10 @@ class CountryController extends Controller
     public function index()
     {
         $countries = Country::paginate(10);
-        return response()->view('country.index',
-            ['countries' => $countries]);
+        return response()->view(
+            'country.index',
+            ['countries' => $countries]
+        );
     }
 
     /**

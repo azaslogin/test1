@@ -7,7 +7,6 @@ use Tests\TestCase;
 
 class PageTest extends TestCase
 {
-
     use RefreshDatabase;
 
     protected bool $seed = true;

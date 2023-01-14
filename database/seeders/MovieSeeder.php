@@ -18,7 +18,7 @@ class MovieSeeder extends Seeder
     {
         $movie = Movie::factory()->count(100)->make();
 
-        $movie->chunk(50)->each(function($chunk) {
+        $movie->chunk(50)->each(function ($chunk) {
             DB::table('movies')->insert($chunk->toArray());
         });
     }
