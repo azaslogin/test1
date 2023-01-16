@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use App\Models\Genre;
 use Tests\TestCase;
 
-class MoviePagesTest extends TestCase
+class GenrePagesTest extends TestCase
 {
     /**
      * @return void
