@@ -28,7 +28,7 @@ Route::get('/Automotive', [PagesController::class, 'automotive'])->name('automot
 
 Route::get('/culture', [PagesController::class, 'culture'])->name('culture');
 
-Route::resource('genre', GenreController::class);
+Route::resource('genre', GenreController::class)->middleware('is_weekday');
 
 Route::resource('movie', MovieController::class);
 
