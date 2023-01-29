@@ -35,11 +35,11 @@ class CountryPagesTest extends TestCase
             'description' => 'Test description',
         ];
 
-        $response = $this->post('/country', $data);
+        $response = $this->post(route('country.store'), $data);
         $response->assertStatus(302);
         $response->assertRedirect('/country');
 
-        $this->assertDatabaseHas('country', $data);
+        $this->assertDatabaseHas('countries', $data);
     }
 
     /**
