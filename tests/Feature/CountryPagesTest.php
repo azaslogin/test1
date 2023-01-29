@@ -78,4 +78,3 @@ class CountryPagesTest extends TestCase
         $this->assertDatabaseMissing('countries', ['id' => $country->id]);
     }
 }
-
