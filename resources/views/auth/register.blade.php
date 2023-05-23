@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.blank')
 @section('content')
     <div class="w-full flex flex-col">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">

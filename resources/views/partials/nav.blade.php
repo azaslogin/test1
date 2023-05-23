@@ -1,16 +1,6 @@
 <!-- Top Bar Nav -->
 <nav class="w-full py-4 bg-blue-800 shadow">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
-        @if (Route::has('login') && Auth::check())
-            <div class="top-right links">
-                <a href="{{ url('/dashboard') }}">Dashboard</a>
-            </div>
-        @elseif (Route::has('login') && !Auth::check())
-            <div class="top-right links">
-                <a href="{{ url('/login') }}">Login</a>
-                <a href="{{ url('/register') }}">Register</a>
-            </div>
-        @endif
         <nav>
             <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
                 <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('home') }}">Home</a></li>
@@ -20,6 +10,17 @@
                 <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('movie.index') }}">Movies</a></li>
                 <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('genre.index') }}">Genres</a></li>
                 <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('country.index') }}">Countries</a></li>
+                <li> | </li>
+                @if (Route::has('login') && Auth::check())
+                        <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('dashboard') }}">Dashboard</a></li>
+                        <li><form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Logout</button>
+                            </form></li>
+                @elseif (Route::has('login') && !Auth::check())
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('login') }}">Login</a></li>
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="{{ route('register') }}">Register</a></li>
+                @endif
             </ul>
         </nav>
 
