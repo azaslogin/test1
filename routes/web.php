@@ -5,6 +5,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\MovieByGenreController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,7 @@ Route::get('/Automotive', [PagesController::class, 'automotive'])->name('automot
 
 Route::get('/culture', [PagesController::class, 'culture'])->name('culture');
 
-Route::resource('genre', GenreController::class);
+Route::resource('genre', GenreController::class)->middleware('is_weekday');
 
 Route::resource('movie', MovieController::class);
 
@@ -42,3 +43,14 @@ Route::get('moviebygenre/index/{id}', [MovieByGenreController::class, 'index'])-
 Route::get('/user/{id}', function ($id) {
     return 'User ' . $id;
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});
+
+require __DIR__ . '/auth.php';

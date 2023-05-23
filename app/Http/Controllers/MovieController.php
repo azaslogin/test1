@@ -15,10 +15,15 @@ use App\Redis\MovieRedis;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Validator;
 
 class MovieController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['create', 'store', 'edit', 'update', 'destroy']);
+    }
     /**
      * @param MovieRedis $movieRedis
      * @return Response
@@ -28,7 +33,10 @@ class MovieController extends Controller
         $movies = $movieRedis->getMoviesByTitle();
         return response()->view(
             'movie.index',
-            ['movies' => $movies]
+            [
+                'movies' => $movies,
+                'is_authorized' => Auth::check()
+            ]
         );
     }
 
