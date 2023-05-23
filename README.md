@@ -17,26 +17,22 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - Migration
 - Seeder
 - Model and relationships
-- Model
 - Crud
 - Validation
 - Tailwind
 - Blade
 - Blade components
 - Javascript
-- --------
+- Middleware
 - Cache
-- xdebug
-- --------
-- middleware
+- xDebug
+- php sniffer, stan
+- tests
 - CI/CD pipeline
+- --------
 - file upload
 - production server
 - server
-- php stiffer, stan
-- tests
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 ## Learning Laravel
 

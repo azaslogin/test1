@@ -32,7 +32,8 @@ class MovieController extends Controller
     {
         $movies = $movieRedis->getMoviesByTitle();
         return response()->view(
-            'movie.index', [
+            'movie.index',
+            [
                 'movies' => $movies,
                 'is_authorized' => Auth::check()
             ]
